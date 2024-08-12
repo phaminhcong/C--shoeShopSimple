@@ -1,0 +1,22 @@
+﻿@page "/"
+@using phaminhcongBlazorServer.Data
+@inject ProductService ProductService
+
+<PageTitle>Home</PageTitle>
+
+<h1></h1>
+@if (lowStockProductCount > 0)
+{
+    <Alert Color="AlertColor.Danger">
+        Có @lowStockProductCount sản phẩm sắp hết <a href="/product/Low" class="alert-link">Click để xem</a>
+    </Alert>
+}
+
+@code {
+    private int lowStockProductCount;
+
+    protected override async Task OnInitializedAsync()
+    {
+        lowStockProductCount = await ProductService.GetLowStockProductCountAsync();
+    }
+}

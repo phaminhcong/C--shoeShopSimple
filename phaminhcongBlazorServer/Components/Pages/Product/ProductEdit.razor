@@ -1,0 +1,186 @@
+﻿@page "/product/edit/{ProductId:int}"
+<h3>ID sản phẩm: @ProductId</h3>
+@using phaminhcongBlazorServer.Data
+@inject NavigationManager NavigationManager
+@inject IWebHostEnvironment Environment
+
+<div class="container">
+    <EditForm Model="product" OnValidSubmit="HandleUpdateProduct">
+        <div class="row">
+            <DataAnnotationsValidator />
+            <div class="col-6">
+                <div class="mb-3">
+                    <label class="form-label">Product Name</label>
+                    <InputText class="form-control" @bind-Value=product.ProductName />
+                    <ValidationMessage For="() => product.ProductName" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Product Price</label>
+                    <InputNumber class="form-control" @bind-Value=product.ProductPrice />
+                    <ValidationMessage For="() => product.ProductPrice" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Product Quantity </label>
+                    <InputNumber class="form-control" @bind-Value=product.ProductQuantity />
+                    <ValidationMessage For="() => product.ProductQuantity" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Status</label>
+                    <InputSelect @bind-Value=product.IsDeleted class="form-control">
+                        <option value="0">Active</option>
+                        <option value="1">Deleted</option>
+                    </InputSelect>
+                    <ValidationMessage For="() => product.IsDeleted" />
+                </div>
+                <div class="mb-3">
+                    <Button Type="ButtonType.Submit" Color="ButtonColor.Success">Save</Button>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label class="form-label">Mô tả</label>
+                    <InputText class="form-control" @bind-Value=product.ProductDescription />
+                    <ValidationMessage For="() => product.ProductDescription" />
+                </div>
+                <div class="mb-3">
+                    <label>Category</label>
+                    <InputSelect class="form-control" @bind-Value=product.ProductCategoryId>
+                        @foreach (var category in categories)
+                        {
+                            <option value="@category.CatId">@category.CatName</option>
+                        }
+                    </InputSelect>
+                    <ValidationMessage For="() => product.ProductCategoryId" />
+                </div>
+                <div class="mb-3">
+                    <label>Image</label>
+                    <InputFile OnChange="HandleSelected" />
+                    @if (!string.IsNullOrEmpty(product.ProductImage))
+                    {
+                        <img src="@product.ProductImage" alt="Product Image" style="max-width: 500px;" />
+                    }
+                    <ValidationMessage For="() => product.ProductImage" />
+
+                </div>
+            </div>
+        </div>
+    </EditForm>
+</div>
+
+@code {
+    [Parameter]
+    public int ProductId { get; set; }
+    protected Product product = new Product();
+    private IBrowserFile selectedFile;
+    protected List<Category> categories = new List<Category>();
+    protected override void OnParametersSet()
+    {
+        if (ProductId != 0)
+        {
+            product = GetProduct();
+        }
+        categories = GetCategories();
+    }
+
+    private Product GetProduct()
+    {
+        Product p = new Product();
+        try
+        {
+            string SqlGetProduct = $"SELECT * FROM products WHERE prd_id = {ProductId}";
+            MySqlConnection conn = DBMySQLUltils.GetMySqlConnection();
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = SqlGetProduct;
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                p.ProductId = reader.GetInt32("prd_id");
+                p.ProductName = reader.GetString("prd_name");
+                p.ProductQuantity = reader.GetInt32("prd_quantity");
+                p.ProductPrice = reader.GetInt32("prd_price");
+                p.ProductDescription = reader.GetString("prd_desc");
+                p.ProductImage = reader.GetString("prd_image");
+                p.ProductCategoryId = reader.GetInt32("cat_id");
+                p.IsDeleted = reader.GetInt32("isDeleted");
+            }
+            conn.Close();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        return p;
+    }
+
+    private async Task HandleSelected(InputFileChangeEventArgs e)
+    {
+        selectedFile = e.File;
+        var filePath = Path.Combine(Environment.WebRootPath, "uploads", selectedFile.Name);
+        using (var stream = selectedFile.OpenReadStream())
+        using (var fileStream = new FileStream(filePath, FileMode.Create))
+        {
+            await stream.CopyToAsync(fileStream);
+        }
+        product.ProductImage = $"uploads/{selectedFile.Name}";
+    }
+
+    private void HandleUpdateProduct()
+    {
+        try
+        {
+            string SqlUpdateProduct = $"UPDATE products SET prd_name=@ProductName, prd_quantity=@ProductQuantity, prd_price=@ProductPrice, prd_desc=@ProductDescription, prd_image=@ProductImage, isDeleted=@IsDeleted WHERE prd_id=@ProductId";
+            using (MySqlConnection conn = DBMySQLUltils.GetMySqlConnection())
+            {
+                conn.Open();
+                using (MySqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = SqlUpdateProduct;
+                    cmd.Parameters.AddWithValue("@ProductId", product.ProductId);
+                    cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
+                    cmd.Parameters.AddWithValue("@ProductQuantity", product.ProductQuantity);
+                    cmd.Parameters.AddWithValue("@ProductPrice", product.ProductPrice);
+                    cmd.Parameters.AddWithValue("@ProductDescription", product.ProductDescription);
+                    cmd.Parameters.AddWithValue("@ProductImage", product.ProductImage);
+                    cmd.Parameters.AddWithValue("@IsDeleted", product.IsDeleted);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            NavigationManager.NavigateTo("/product/list");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+    private List<Category> GetCategories()
+    {
+        List<Category> list = new List<Category>();
+        try
+        {
+            string SqlGetCategories = "SELECT * FROM categories WHERE isDeleted = 0";
+            MySqlConnection conn = DBMySQLUltils.GetMySqlConnection();
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = SqlGetCategories;
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Category c = new Category
+                    {
+                        CatId = reader.GetInt32("cat_id"),
+                        CatName = reader.GetString("cat_name"),
+                        IsDeleted = reader.GetInt32("isDeleted")
+                    };
+                list.Add(c);
+            }
+            conn.Close();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        return list;
+    }
+}

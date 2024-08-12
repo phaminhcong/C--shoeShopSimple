@@ -1,0 +1,245 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\codec#\\phaminhcongBlazorServer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|d:\\codec#\\phaminhcongblazorserver\\phaminhcongblazorserver\\components\\pages\\category\\categorylist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|solutionrelative:phaminhcongblazorserver\\components\\pages\\category\\categorylist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|d:\\codec#\\phaminhcongblazorserver\\phaminhcongblazorserver\\components\\pages\\category\\categoryedit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|solutionrelative:phaminhcongblazorserver\\components\\pages\\category\\categoryedit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|d:\\codec#\\phaminhcongblazorserver\\phaminhcongblazorserver\\components\\pages\\category\\categorycreate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|solutionrelative:phaminhcongblazorserver\\components\\pages\\category\\categorycreate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|d:\\codec#\\phaminhcongblazorserver\\phaminhcongblazorserver\\components\\pages\\user\\usercreate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|solutionrelative:phaminhcongblazorserver\\components\\pages\\user\\usercreate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|d:\\codec#\\phaminhcongblazorserver\\phaminhcongblazorserver\\components\\pages\\user\\userlist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|solutionrelative:phaminhcongblazorserver\\components\\pages\\user\\userlist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|d:\\codec#\\phaminhcongblazorserver\\phaminhcongblazorserver\\components\\pages\\product\\productlist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|solutionrelative:phaminhcongblazorserver\\components\\pages\\product\\productlist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|d:\\codec#\\phaminhcongblazorserver\\phaminhcongblazorserver\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|solutionrelative:phaminhcongblazorserver\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|d:\\codec#\\phaminhcongblazorserver\\phaminhcongblazorserver\\components\\pages\\product\\productlow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|solutionrelative:phaminhcongblazorserver\\components\\pages\\product\\productlow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|d:\\codec#\\phaminhcongblazorserver\\phaminhcongblazorserver\\components\\pages\\product\\productedit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|solutionrelative:phaminhcongblazorserver\\components\\pages\\product\\productedit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|d:\\codec#\\phaminhcongblazorserver\\phaminhcongblazorserver\\data\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|solutionrelative:phaminhcongblazorserver\\data\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|d:\\codec#\\phaminhcongblazorserver\\phaminhcongblazorserver\\components\\pages\\product\\productcreate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|solutionrelative:phaminhcongblazorserver\\components\\pages\\product\\productcreate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|d:\\codec#\\phaminhcongblazorserver\\phaminhcongblazorserver\\components\\pages\\product\\productdetail.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|solutionrelative:phaminhcongblazorserver\\components\\pages\\product\\productdetail.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|d:\\codec#\\phaminhcongblazorserver\\phaminhcongblazorserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|solutionrelative:phaminhcongblazorserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|d:\\codec#\\phaminhcongblazorserver\\phaminhcongblazorserver\\data\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52E0C909-E7E3-45C9-886A-6DF8958B5F2B}|phaminhcongBlazorServer\\phaminhcongBlazorServer.csproj|solutionrelative:phaminhcongblazorserver\\data\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserList.razor",
+              "DocumentMoniker": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\User\\UserList.razor",
+              "RelativeDocumentMoniker": "phaminhcongBlazorServer\\Components\\Pages\\User\\UserList.razor",
+              "ToolTip": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\User\\UserList.razor",
+              "RelativeToolTip": "phaminhcongBlazorServer\\Components\\Pages\\User\\UserList.razor",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-25T01:44:15.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserCreate.razor",
+              "DocumentMoniker": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\User\\UserCreate.razor",
+              "RelativeDocumentMoniker": "phaminhcongBlazorServer\\Components\\Pages\\User\\UserCreate.razor",
+              "ToolTip": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\User\\UserCreate.razor",
+              "RelativeToolTip": "phaminhcongBlazorServer\\Components\\Pages\\User\\UserCreate.razor",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-25T01:44:11.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CategoryCreate.razor",
+              "DocumentMoniker": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Category\\CategoryCreate.razor",
+              "RelativeDocumentMoniker": "phaminhcongBlazorServer\\Components\\Pages\\Category\\CategoryCreate.razor",
+              "ToolTip": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Category\\CategoryCreate.razor",
+              "RelativeToolTip": "phaminhcongBlazorServer\\Components\\Pages\\Category\\CategoryCreate.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-24T15:48:52.295Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CategoryList.razor",
+              "DocumentMoniker": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Category\\CategoryList.razor",
+              "RelativeDocumentMoniker": "phaminhcongBlazorServer\\Components\\Pages\\Category\\CategoryList.razor",
+              "ToolTip": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Category\\CategoryList.razor",
+              "RelativeToolTip": "phaminhcongBlazorServer\\Components\\Pages\\Category\\CategoryList.razor",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAABkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-24T15:47:51.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProductLow.razor",
+              "DocumentMoniker": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductLow.razor",
+              "RelativeDocumentMoniker": "phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductLow.razor",
+              "ToolTip": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductLow.razor",
+              "RelativeToolTip": "phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductLow.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAABYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-24T07:57:10.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Program.cs",
+              "RelativeDocumentMoniker": "phaminhcongBlazorServer\\Program.cs",
+              "ToolTip": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Program.cs",
+              "RelativeToolTip": "phaminhcongBlazorServer\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T07:42:25.642Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Data\\ProductService.cs",
+              "RelativeDocumentMoniker": "phaminhcongBlazorServer\\Data\\ProductService.cs",
+              "ToolTip": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Data\\ProductService.cs",
+              "RelativeToolTip": "phaminhcongBlazorServer\\Data\\ProductService.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAABVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T07:35:37.612Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProductCreate.razor",
+              "DocumentMoniker": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductCreate.razor",
+              "RelativeDocumentMoniker": "phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductCreate.razor",
+              "ToolTip": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductCreate.razor",
+              "RelativeToolTip": "phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductCreate.razor",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAIIAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-23T17:00:06.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProductEdit.razor",
+              "DocumentMoniker": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductEdit.razor",
+              "RelativeDocumentMoniker": "phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductEdit.razor",
+              "ToolTip": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductEdit.razor",
+              "RelativeToolTip": "phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductEdit.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-21T11:27:23.526Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProductDetail.razor",
+              "DocumentMoniker": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductDetail.razor",
+              "RelativeDocumentMoniker": "phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductDetail.razor",
+              "ToolTip": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductDetail.razor",
+              "RelativeToolTip": "phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductDetail.razor",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABgAAAB0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-21T11:06:29.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "phaminhcongBlazorServer\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "phaminhcongBlazorServer\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAIAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-21T09:25:28.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductList.razor",
+              "DocumentMoniker": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductList.razor",
+              "RelativeDocumentMoniker": "phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductList.razor",
+              "ToolTip": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductList.razor",
+              "RelativeToolTip": "phaminhcongBlazorServer\\Components\\Pages\\Product\\ProductList.razor",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAADUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-21T04:04:07.3Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Data\\Product.cs",
+              "RelativeDocumentMoniker": "phaminhcongBlazorServer\\Data\\Product.cs",
+              "ToolTip": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Data\\Product.cs",
+              "RelativeToolTip": "phaminhcongBlazorServer\\Data\\Product.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAQwCkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T04:01:48.617Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CategoryEdit.razor",
+              "DocumentMoniker": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Category\\CategoryEdit.razor",
+              "RelativeDocumentMoniker": "phaminhcongBlazorServer\\Components\\Pages\\Category\\CategoryEdit.razor",
+              "ToolTip": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\Components\\Pages\\Category\\CategoryEdit.razor",
+              "RelativeToolTip": "phaminhcongBlazorServer\\Components\\Pages\\Category\\CategoryEdit.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-20T01:20:25.575Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

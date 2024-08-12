@@ -1,0 +1,33 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">SHOESHOP</a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="menu" aria-hidden="true"><Icon Name="IconName.BellFill" /></span>&emsp;Thông báo
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="category/list">
+                <span class="menu" aria-hidden="true"></span> <Icon Name="IconName.Calendar2Fill" /> &emsp; List of Brand
+            </NavLink>
+        </div>
+        @* <div class="nav-item px-3">
+            <NavLink class="nav-link" href="user/list">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> List of User
+            </NavLink>
+        </div> *@
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="product/list">
+                <span class="menu" aria-hidden="true"></span> <Icon Name="IconName.Box" /> &emsp; List of Product
+            </NavLink>
+        </div>
+    </nav>
+</div>
+

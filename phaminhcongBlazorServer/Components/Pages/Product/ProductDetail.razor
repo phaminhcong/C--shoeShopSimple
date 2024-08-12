@@ -1,0 +1,121 @@
+﻿@page "/product/detail/{ProductId:int}"
+@using MySql.Data.MySqlClient
+@using phaminhcongBlazorServer.Data
+@inject NavigationManager NavigationManager
+<h3>ProductDetail</h3>
+<div class="container">
+        <div class="row">
+           
+            <div class="col-6">
+                <div class="mb-3">
+                    <label>Product Name</label>
+                    <input class="form-control" value="@product.ProductName" readonly />
+                </div>
+
+                <div class="mb-3">
+                    <label>Price</label>
+                    <input class="form-control" value="@product.ProductPrice" readonly />
+                </div>
+                <div class="mb-3">
+                    <label>Quantity</label>
+                    <input class="form-control" value="@product.ProductQuantity" readonly />
+                </div>
+                <div class="mb-3">
+                    <label>Status</label>
+                    <input class="form-control" value="@(product.IsDeleted == 0 ? "Active" : "Deleted")" readonly />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label>Description</label>
+                    <textarea class="form-control" readonly>@product.ProductDescription</textarea>
+                </div>
+                <div class="mb-3">
+                    <label>Category</label>
+                    <input class="form-control" value="@productCategory?.CatName" readonly />
+                </div>
+                <div class="mb-3">
+                    <label>Image</label>
+                    <div>
+                    @if (!string.IsNullOrEmpty(product.ProductImage))
+                    {
+                    <img src="@product.ProductImage" alt="Product Image" style="max-width: 500px;" />
+                    }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</div>
+@code {
+    [Parameter]
+    public int ProductId { get; set; }
+    protected Product product = new Product();
+    protected Category productCategory;
+    protected override void OnParametersSet()
+    {
+        if (ProductId != 0)
+        {
+            product = GetProduct();
+            productCategory = GetCategory(product.ProductCategoryId);
+        }
+    }
+    private Product GetProduct()
+    {
+        Product p = new Product();
+        try
+        {
+            string SqlGetProduct = $"SELECT * FROM products WHERE prd_id = {ProductId}";
+            MySqlConnection conn = DBMySQLUltils.GetMySqlConnection();
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = SqlGetProduct;
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                p.ProductId = reader.GetInt32("prd_id");
+                p.ProductName = reader.GetString("prd_name");
+                p.ProductQuantity = reader.GetInt32("prd_quantity");
+                p.ProductPrice = reader.GetInt32("prd_price");
+                p.ProductDescription = reader.GetString("prd_desc");
+                p.ProductImage = reader.GetString("prd_image");
+                p.ProductCategoryId = reader.GetInt32("cat_id");
+                p.IsDeleted = reader.GetInt32("isDeleted");
+            }
+            conn.Close();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        return p;
+    }
+    private Category GetCategory(int categoryId)
+    {
+        Category c = new Category();
+        try
+        {
+            string SqlGetCategory = $"SELECT * FROM categories WHERE cat_id = {categoryId}";
+            MySqlConnection conn = DBMySQLUltils.GetMySqlConnection();
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = SqlGetCategory;
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                c.CatId = reader.GetInt32("cat_id");
+                c.CatName = reader.GetString("cat_name");
+                c.IsDeleted = reader.GetInt32("isDeleted");
+            }
+            conn.Close();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        return c;
+    }
+
+
+
+}

@@ -1,0 +1,129 @@
+﻿@page "/product/list"
+@using MySql.Data.MySqlClient
+@using phaminhcongBlazorServer.Data
+@inject IJSRuntime JS
+@inject NavigationManager NavigationManager
+<h3>ProductList</h3>
+@if (showSuccessMessage)
+{
+    <div class="alert alert-success">
+        Thêm thành công
+    </div>
+}
+<Button Type="ButtonType.Link" Color="ButtonColor.Success" class="me-1" To="product/create">+ Thêm sản phẩm</Button>
+<Grid TItem="Product"
+      Class="table table-hover table-bordered table-striped"
+      DataProvider="ProductDataProvider"
+      AllowPaging="true"
+      PageSize="5"
+      Responsive="true">
+
+    <GridColumn TItem="Product" HeaderText="Id" PropertyName="ProductId" SortKeySelector="item => item.ProductId">
+        @context.ProductId
+    </GridColumn>
+    <GridColumn TItem="Product" HeaderText="Product Name" PropertyName="ProductName" SortKeySelector="item => item.ProductName">
+        @context.ProductName
+    </GridColumn>
+    <GridColumn TItem="Product" HeaderText="Price" PropertyName="ProductPrice" SortKeySelector="item => item.ProductPrice">
+        $ @context.ProductPrice
+    </GridColumn>
+    <GridColumn TItem="Product" HeaderText="Quantity" PropertyName="ProductQuantity" SortKeySelector="item => item.ProductQuantity">
+        @context.ProductQuantity
+    </GridColumn>
+    <GridColumn TItem="Product" HeaderText="Product Image" PropertyName="ProductImage"  >
+        <img src="@context.ProductImage" alt="User Avatar" style="width:150px;height:150px;" />
+    </GridColumn>
+    <GridColumn TItem="Product" HeaderText="Status" PropertyName="IsDeleted" SortKeySelector="item => item. IsDeleted">
+        @if (@context.IsDeleted == 1)
+        {
+            <span class="badge text-bg-danger">Deleted</span>
+        }
+        else
+        {
+            <span class="badge text-bg-success">Active</span>
+        }
+    </GridColumn>
+    <GridColumn TItem="Product" HeaderText="Action">
+        <Button Type="ButtonType.Link" Color="ButtonColor.Info" class="me-1" To=@($"product/detail/{@context.ProductId}")>Detail</Button>
+        <Button Type="ButtonType.Link" Color="ButtonColor.Warning" class="me-1" To=@($"product/edit/{@context.ProductId}")>Edit</Button>
+        @if (@context.IsDeleted == 0)
+        {
+            <Button Type
+            ="ButtonType.Button" Color
+            ="ButtonColor.Danger" @onclick=" (ProductId) => DeleteProduct(context.ProductId)">Deleted</Button>
+        }
+        
+</GridColumn>
+
+    @* <GridColumn TItem="User" HeaderText="Action">
+        <Button Type="ButtonType.Link" Color="ButtonColor.Warning" class="me-1" To=@($"category/edit/{@context.UserId}")>Edit</Button>
+        <Button Type="ButtonType.Button" Color="ButtonColor.Danger">Deleted</Button>
+    </GridColumn> *@
+
+</Grid>
+@code {
+    public List<Product> listProduct = null;
+    private bool showSuccessMessage = false;
+    private async Task<GridDataProviderResult<Product>> ProductDataProvider(GridDataProviderRequest<Product> request)
+    {
+        if (listProduct is null) // pull employees only one time for client-side filtering, sorting, and paging
+            listProduct = GetProduct(); // call a service or an API to pull the employees
+
+        return await Task.FromResult(request.ApplyTo(listProduct));
+    }
+    protected override void OnInitialized()
+    {
+        listProduct = GetProduct();
+    }
+    private List<Product> GetProduct()
+    {
+        List<Product> list = new List<Product>();
+        try
+        {
+            string SqlGetProduct = "SELECT * FROM products ORDER BY prd_id";
+            MySqlConnection conn = DBMySQLUltils.GetMySqlConnection();
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = SqlGetProduct;
+            MySqlDataReader mySqlDataReader = cmd.ExecuteReader();
+            while (mySqlDataReader.Read())
+            {
+                int ProductId = mySqlDataReader.GetInt32("prd_id");
+                string ProductName = mySqlDataReader.GetString("prd_name");
+                int ProductQuantity = mySqlDataReader.GetInt32("prd_quantity");
+                int ProductPrice = mySqlDataReader.GetInt32("prd_price");
+                string ProductDescription = mySqlDataReader.GetString("prd_desc");
+                string ProductImage = mySqlDataReader.GetString("prd_image");
+                int ProductCategoryId = mySqlDataReader.GetInt32("cat_id");
+                int IsDeleted = mySqlDataReader.GetInt32("isDeleted");
+                Product p = new Product(ProductId, ProductName, ProductDescription, ProductPrice, ProductQuantity, ProductImage,ProductCategoryId, IsDeleted);
+                list.Add(p);            
+            }
+            conn.Close();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        return list;
+    }
+    private void DeleteProduct(int id)
+    {
+        try
+        {
+            string SqlUpdateCategory = $"UPDATE products SET isDeleted = 1 WHERE prd_id = {id}";
+            MySqlConnection conn = DBMySQLUltils.GetMySqlConnection();
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = SqlUpdateCategory;
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            NavigationManager.NavigateTo("/product/list", true);
+            showSuccessMessage = true;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+}

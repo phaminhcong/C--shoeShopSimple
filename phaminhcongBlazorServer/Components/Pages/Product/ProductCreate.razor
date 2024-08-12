@@ -1,0 +1,157 @@
+﻿@page "/product/create"
+@using phaminhcongBlazorServer.Data
+@using MySql.Data.MySqlClient
+@inject NavigationManager NavigationManager
+<h3>ProductCreate</h3>
+<div class="container">
+	<EditForm Model="product" OnValidSubmit="HandleCreateProduct">
+		<div class="row">
+			<DataAnnotationsValidator />
+			<div class="col-6">
+				<div class="mb-3">
+					<label class="form-label">Product Name</label>
+					<InputText class="form-control" @bind-Value=product.ProductName />
+					<ValidationMessage For="() => product.ProductName" />
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label">Product Price</label>
+					<InputNumber class="form-control" @bind-Value=product.ProductPrice />
+					<ValidationMessage For="() => product.ProductPrice" />
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Product Quantity </label>
+					<InputNumber class="form-control" @bind-Value=product.ProductQuantity />
+					<ValidationMessage For="() => product.ProductQuantity" />
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Mô tả</label>
+					<InputText class="form-control" @bind-Value=product.ProductDescription />
+					<ValidationMessage For="() => product.ProductDescription" />
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Category</label>
+					<select class="form-control" @bind="product.ProductCategoryId">
+						<option value="">Chọn danh mục</option>
+						@foreach (var category in listCategory)
+						{
+							<option value="@category.CatId">@category.CatName</option>
+						}
+					</select>
+					<ValidationMessage For="() => product.ProductCategoryId" />
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Status</label>
+					<InputSelect @bind-Value=product.IsDeleted class="form-control">
+						<option value="0">Active</option>
+						<option value="1">Deleted</option>
+					</InputSelect>
+					<ValidationMessage For="() => product.IsDeleted" />
+				</div>
+				<div class="mb-3">
+					<Button Type="ButtonType.Submit" Color="ButtonColor.Success">Save</Button>
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="mb-3">
+					<label class="form-label">File</label>
+					<InputFile class="form-control" OnChange="HandleFileSeclected"></InputFile>
+					
+					@if (ImageDataUrl != "")
+					{
+						<img src="@ImageDataUrl" style="max-width: 500px;" />
+					}
+					
+				</div>
+			</div>
+		</div>
+	</EditForm>
+</div>
+@code {
+	protected Product product = new Product();
+	private List<Category> listCategory = new List<Category>();
+	protected override void OnInitialized()
+	{
+		listCategory = GetCategories();
+	}
+
+	private List<Category> GetCategories()
+	{
+		List<Category> list = new List<Category>();
+		try
+		{
+			string SqlGetCategories = "SELECT * FROM categories WHERE isDeleted = 0 ORDER BY cat_id";
+			using (MySqlConnection conn = DBMySQLUltils.GetMySqlConnection())
+			{
+				conn.Open();
+				using (MySqlCommand cmd = conn.CreateCommand())
+				{
+					cmd.CommandText = SqlGetCategories;
+					using (MySqlDataReader mySqlDataReader = cmd.ExecuteReader())
+					{
+						while (mySqlDataReader.Read())
+						{
+							int CatId = mySqlDataReader.GetInt32("cat_id");
+							string CatName = mySqlDataReader.GetString("cat_name");
+							int IsDeleted = mySqlDataReader.GetInt32("isDeleted");
+							Category c = new Category(CatId, CatName, IsDeleted);
+							list.Add(c);
+						}
+					}
+				}
+			}
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine(ex.Message);
+		}
+		return list;
+	}
+	private string ImageDataUrl = "";
+	private IBrowserFile selectedFile;
+	private async void HandleCreateProduct()
+	{
+		try
+		{
+			await SaveImageToServer(selectedFile);
+			string ProductName = product.ProductName;
+			int ProductQuantity = product.ProductQuantity;
+			int ProductPrice = product.ProductPrice;
+			string ProductDescription = product.ProductDescription;
+			int IsDeleted = product.IsDeleted;
+			string ProductImage = product.ProductImage;
+			int ProductCategoryId = product.ProductCategoryId;
+			string SqlInsertUser = $"INSERT INTO products(prd_name, prd_quantity, prd_price, prd_desc,prd_image,cat_id, isDeleted) VALUES('{ProductName}','{ProductQuantity}','{ProductPrice}','{ProductDescription}','{ProductImage}','{ProductCategoryId}','{IsDeleted}')";
+			MySqlConnection conn = DBMySQLUltils.GetMySqlConnection();
+			conn.Open();
+			MySqlCommand cmd = conn.CreateCommand();
+			cmd.CommandText = SqlInsertUser;
+			cmd.ExecuteNonQuery();
+			conn.Close();
+			NavigationManager.NavigateTo("/product/list");
+		}
+		catch (Exception ex)
+		{
+		}
+	}
+	private async Task HandleFileSeclected(InputFileChangeEventArgs e)
+	{
+		selectedFile = e.File;
+		var resizeFile = await e.File.RequestImageFileAsync("image/jpeg", 500, 500);
+		var buffer = new byte[resizeFile.Size];
+		await resizeFile.OpenReadStream().ReadAsync(buffer);
+		ImageDataUrl = $"data:image/jpeg;base64,{Convert.ToBase64String(buffer)}";
+	}
+	private async Task SaveImageToServer(IBrowserFile file)
+	{
+		var FileName = file.Name;
+		var folderPath = Path.Combine("wwwroot", "uploads"); //wwwroot/uploads
+		var filePath = Path.Combine(folderPath, FileName); //wwwroot/uploads/...
+		Directory.CreateDirectory(folderPath);
+		using (var fileStream = new FileStream(filePath, FileMode.Create))
+		{
+			await file.OpenReadStream(10000000).CopyToAsync(fileStream);
+		}
+		product.ProductImage = $"uploads/{FileName}";
+	}
+}

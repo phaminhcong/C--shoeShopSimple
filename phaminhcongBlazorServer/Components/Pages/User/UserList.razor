@@ -1,0 +1,90 @@
+﻿@page "/user/list"
+@using MySql.Data.MySqlClient
+@using phaminhcongBlazorServer.Data
+@inject NavigationManager NavigationManager
+<h3>UserList</h3>
+<Button Type="ButtonType.Link" Color="ButtonColor.Warning" class="me-1" To="user/create">Them</Button>
+<Grid TItem="User"
+      Class="table table-hover table-bordered table-striped"
+      DataProvider="UserDataProvider"
+      AllowFiltering="true"
+      AllowPaging="true"
+      PageSize="5"
+      AllowSorting="true"
+      AllowSelection="true"
+      Responsive="true">
+
+    <GridColumn TItem="User" HeaderText="Id" PropertyName="UserId" SortKeySelector="item => item.UserId">
+        @context.UserId
+    </GridColumn>
+    <GridColumn TItem="User" HeaderText="Employee Name" PropertyName="UserName" SortKeySelector="item => item.UserName">
+        @context.UserName
+    </GridColumn>
+    <GridColumn TItem="User" HeaderText="Employee Name" PropertyName="UserEmail" SortKeySelector="item => item.UserEmail">
+        @context.UserEmail
+    </GridColumn>
+    <GridColumn TItem="User" HeaderText="Avatar" PropertyName="UserAvatar">
+        <img src="@context.UserAvatar" alt="User Avatar" style="width:50px;height:50px;" />
+        </GridColumn>
+    <GridColumn TItem="User" HeaderText="Status" PropertyName="IsDeleted" SortKeySelector="item => item. IsDeleted">
+        @if (@context.IsDeleted == 1)
+        {
+            <span class="badge text-bg-danger">Deleted</span>
+        }
+        else
+        {
+            <span class="badge text-bg-success">Active</span>
+        }
+    </GridColumn>
+
+    <GridColumn TItem="User" HeaderText="Action">
+        <Button Type="ButtonType.Link" Color="ButtonColor.Warning" class="me-1" To=@($"category/edit/{@context.UserId}")>Edit</Button>
+        <Button Type="ButtonType.Button" Color="ButtonColor.Danger">Deleted</Button>
+    </GridColumn>
+
+</Grid>
+@code {
+    private async Task<GridDataProviderResult<User>> UserDataProvider(GridDataProviderRequest<User> request)
+    {
+        if (listUser is null) // pull employees only one time for client-side filtering, sorting, and paging
+            listUser = GetUser(); // call a service or an API to pull the employees
+
+        return await Task.FromResult(request.ApplyTo(listUser));
+    }
+    protected override void OnInitialized()
+    {
+        listUser = GetUser();
+    }
+    private List<User> GetUser()
+    {
+        List<User> list = new List<User>();
+        try
+        {
+            string SqlGetUser = "SELECT * FROM users ORDER BY user_id";
+            MySqlConnection conn = DBMySQLUltils.GetMySqlConnection();
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = SqlGetUser;
+            MySqlDataReader mySqlDataReader = cmd.ExecuteReader();
+            while (mySqlDataReader.Read())
+            {
+                int UserId= mySqlDataReader.GetInt32("user_id");
+                string UserName = mySqlDataReader.GetString("user_name");
+                string UserEmail = mySqlDataReader.GetString("user_email");
+                string UserPhoneNumber = mySqlDataReader.GetString("user_phone_number");
+                string UserAvatar = mySqlDataReader.GetString("user_avatar");
+                string UserPassword = mySqlDataReader.GetString("user_password");
+                int IsDeleted = mySqlDataReader.GetInt32("isDeleted");
+                User u = new User(UserId, UserName, UserEmail,UserPhoneNumber ,UserPassword, UserAvatar,IsDeleted);
+                list.Add(u);
+            }
+            conn.Close();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        return list;
+    }
+    public List<User> listUser = null;
+}

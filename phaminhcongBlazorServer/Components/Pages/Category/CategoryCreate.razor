@@ -1,0 +1,56 @@
+﻿@page "/category/create"
+@using phaminhcongBlazorServer.Data
+@using MySql.Data.MySqlClient
+@inject NavigationManager NavigationManager
+
+<h3>Tạo nhãn hàng mới</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <EditForm Model ="category" OnValidSubmit="HandleCreateCategory">
+                <DataAnnotationsValidator />
+                <div class="mb-3">
+                    <label >Name</label>
+                    <InputText class="form-control" @bind-Value=category.CatName/>
+                    <ValidationMessage For="() => category.CatName"/>
+                </div>
+                <div class="mb-3">
+                    <label>Status</label>
+                    <InputSelect class="form-control" @bind-Value=category.IsDeleted>
+                    <option value="0">Active</option>
+                    <option value="1">Deleted</option>
+                    </InputSelect>
+                    <ValidationMessage For="() => category.IsDeleted" />
+                </div>
+                <div class="mb-3">
+                    <Button Type="ButtonType.Submit" Color="ButtonColor.Success">Save</Button>
+                </div>
+            </EditForm>
+        </div>
+
+    </div>
+
+</div>
+
+@code {
+    protected Category category = new Category();
+    private void HandleCreateCategory()
+    {
+        string CatName = category.CatName;
+        int IsDeleted = category.IsDeleted;
+        try
+        {
+            string SqlInsertCategory = $"INSERT INTO categories (cat_name, isDeleted) VALUES ('{CatName}',{IsDeleted})";
+            MySqlConnection conn = DBMySQLUltils.GetMySqlConnection();
+            conn.Open();
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = SqlInsertCategory;
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            NavigationManager.NavigateTo ("/category/list");
+        }catch(Exception ex)
+        {
+            
+        }
+    }
+}

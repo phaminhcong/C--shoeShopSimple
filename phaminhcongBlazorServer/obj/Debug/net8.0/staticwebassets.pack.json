@@ -1,0 +1,89 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\phaminhcongBlazorServer.bundle.scp.css",
+      "PackagePath": "staticwebassets\\phaminhcongBlazorServer.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\uploads\\2619383-anime-4k-hd-free-wallpaper.jpg",
+      "PackagePath": "staticwebassets\\uploads\\2619383-anime-4k-hd-free-wallpaper.jpg"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\uploads\\3105project2.png",
+      "PackagePath": "staticwebassets\\uploads\\3105project2.png"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\uploads\\51MOltvCQgL.jpg",
+      "PackagePath": "staticwebassets\\uploads\\51MOltvCQgL.jpg"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\uploads\\Ảnh chụp màn hình 2023-11-05 204534.png",
+      "PackagePath": "staticwebassets\\uploads\\Ảnh chụp màn hình 2023-11-05 204534.png"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\uploads\\Ảnh chụp màn hình 2023-11-16 163633.png",
+      "PackagePath": "staticwebassets\\uploads\\Ảnh chụp màn hình 2023-11-16 163633.png"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\uploads\\Screenshot (101).png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot (101).png"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\uploads\\Screenshot (113).png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot (113).png"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\uploads\\Screenshot (99).png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot (99).png"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\uploads\\Screenshot 2024-06-24 230551.png",
+      "PackagePath": "staticwebassets\\uploads\\Screenshot 2024-06-24 230551.png"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\uploads\\air-force-1-07-shoes-WrLlWX.png",
+      "PackagePath": "staticwebassets\\uploads\\air-force-1-07-shoes-WrLlWX.png"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\uploads\\custom-nike-air-force-1-low-by-you.png",
+      "PackagePath": "staticwebassets\\uploads\\custom-nike-air-force-1-low-by-you.png"
+    },
+    {
+      "Id": "D:\\codec#\\phaminhcongBlazorServer\\phaminhcongBlazorServer\\wwwroot\\uploads\\map2.png",
+      "PackagePath": "staticwebassets\\uploads\\map2.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.phaminhcongBlazorServer.props",
+      "PackagePath": "build\\phaminhcongBlazorServer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.phaminhcongBlazorServer.props",
+      "PackagePath": "buildMultiTargeting\\phaminhcongBlazorServer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.phaminhcongBlazorServer.props",
+      "PackagePath": "buildTransitive\\phaminhcongBlazorServer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.phaminhcongBlazorServer.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
